@@ -1,9 +1,11 @@
+// constantes del html
 const input = document.getElementById("ingreso");
 const select = document.getElementById("divisa");
 const button = document.getElementById("buscar");
 const span = document.getElementById("render");
 const canvas = document.getElementById("grafico");
 
+// aplicacón de la API
 const url = "https://mindicador.cl/api/";
 
 const formatDate = (date) => {
@@ -14,6 +16,8 @@ const formatDate = (date) => {
 };
 
 let myChart = null;
+
+// renderización del grafico
 
 function renderGrafico(data) {
   const config = {
@@ -36,6 +40,7 @@ function renderGrafico(data) {
   myChart = new Chart(canvas, config);
 }
 
+// Funcionalidad del select
 async function buscarCotizacion() {
   try {
     const cantidad = input.value;
@@ -49,6 +54,7 @@ async function buscarCotizacion() {
   }
 }
 
+// seteo de la info para mostrar en el grafico
 button.addEventListener(`click`, async () => {
   span.innerHTML = `Cargando...`;
   let lastValue, data;
